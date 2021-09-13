@@ -1,0 +1,1 @@
+export const INCREASE_STATE = "INCREASE_STATE";
