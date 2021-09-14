@@ -1,1 +1,3 @@
 export const INCREASE_STATE = "INCREASE_STATE";
+
+export const UPDATE_PAGE = "UPDATE_PAGE";

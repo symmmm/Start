@@ -11,7 +11,7 @@ const List = ({ number }) => {
   const Click = () => {
     dispatch(nowCount(reduxNumber + 1));
   };
-  
+
   return (
     <div>
       <li>넘겨받은값:{number}</li>

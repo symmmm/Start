@@ -52,12 +52,10 @@ export const SidebarData = [
       {
         title: "Notice",
         path: "/Community/Notice",
-        icon: <IoIcons.IoIosPaper />,
       },
       {
         title: "Review",
         path: "/Community/Review",
-        icon: <IoIcons.IoIosPaper />,
       },
     ],
   },
