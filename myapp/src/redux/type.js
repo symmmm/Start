@@ -1,3 +1,6 @@
 export const INCREASE_STATE = "INCREASE_STATE";
 
 export const UPDATE_PAGE = "UPDATE_PAGE";
+// 검색
+export const UPDATE_SEARCH_PAGE = "UPDATE_SEARCH_PAGE";
+export const DELETE_SEARCH_PAGE = "DELETE_SEARCH_PAGE";
