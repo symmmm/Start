@@ -64,14 +64,16 @@ router.get("/detail/:board_no", (req, res) => {
 ////////////검색시////////////////
 router.get("/search/:option/:text/:currentPage", (req, res) => {
   let option;
+  let text = req.params.text;
   if (req.params.option == "제목") {
     option = "title";
   } else if (req.params.option == "작성자") {
     option = "auth";
   } else if (req.params.option == "내용") {
     option = "contents";
+  }else if (req.params.option == "전체"){
   }
-  let text = req.params.text;
+
   // let option = req.params.option;
   console.log("전달받은값", text, option);
   let rowPerPage = 10;

@@ -9,7 +9,7 @@ import { IconContext } from "react-icons/lib";
 
 const Nav = styled.div`
   background: #15171c;
-  height: 60px;
+  height: 130px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -22,6 +22,7 @@ const NavIcon = styled(Link)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: blue;
 `;
 
 const SidebarNav = styled.nav`

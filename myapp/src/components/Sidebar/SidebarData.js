@@ -37,7 +37,7 @@ export const SidebarData = [
 
   {
     title: "LookBook",
-    path: "/board",
+    path: "/lookbook",
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
   },
