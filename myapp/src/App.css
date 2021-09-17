@@ -54,3 +54,15 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.main-footer {
+  background-color: grey;
+}
+.test-nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+.test {
+  border: 1px solid #444444;
+}

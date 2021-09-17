@@ -8,6 +8,8 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Notice from "./route/Notice";
 import Lookbook from "./route/Lookbook";
 import NewArrival from "./route/store/NewArrival";
+import Footer from "./components/Footer";
+import AppNav from "./components/Sidebar/AppNav";
 function App() {
   return (
     <Router>
@@ -25,6 +27,7 @@ function App() {
           component={NoticeDetail}
         />
       </Switch>
+      <Footer />
     </Router>
   );
 }
