@@ -9,14 +9,17 @@ import Notice from "./route/Notice";
 import Lookbook from "./route/Lookbook";
 import NewArrival from "./route/store/NewArrival";
 import Footer from "./components/Footer";
-import AppNav from "./components/Sidebar/AppNav";
+import Outer from "./route/store/Outer";
+import Detail from "./route/store/Detail";
 function App() {
   return (
     <Router>
       <Sidebar />
       <Switch>
         <Route path="/" exact component={Mainpage} />
+        <Route path="/detail/:number" exact component={Detail} />
         <Route path="/store/newarrival" exact component={NewArrival} />
+        <Route path="/store/outer" exact component={Outer} />
         <Route path="/test/contents" exact component={Contents} />
         <Route path="/test/postlist" exact component={PostList} />
         <Route path="/lookbook" exact component={Lookbook} />

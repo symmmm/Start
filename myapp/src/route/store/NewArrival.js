@@ -21,8 +21,8 @@ const Product_page = styled.div`
 `;
 
 const Change_ProductImg = styled.img`
-  width: 264px;
-  height: 399px;
+  width: 390px;
+  height: 500px;
   margin-right: auto;
   margin-left: auto;
   position: absolute;

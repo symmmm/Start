@@ -9,7 +9,7 @@ const NoticeDetail = () => {
     axios
       .get("http://localhost:8000/board/detail/" + board_id.number)
       .then((response) => {
-        //console.log(response.data);
+        console.log(response.data);
         setData(response.data);
       });
   }, []);
