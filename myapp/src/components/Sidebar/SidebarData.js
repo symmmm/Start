@@ -29,6 +29,16 @@ export const SidebarData = [
         cName: "sub-nav",
       },
       {
+        title: "top",
+        path: "/store/top",
+        cName: "sub-nav",
+      },
+      {
+        title: "pants",
+        path: "/store/pants",
+        cName: "sub-nav",
+      },
+      {
         title: "Accessories",
         path: "/store/Accessories",
       },

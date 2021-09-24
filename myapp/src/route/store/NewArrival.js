@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Topbar from "../../components/Sidebar/Topbar";
 
 const Product_page = styled.div`
   //margin-top: 20px;
@@ -145,6 +146,7 @@ const NewArrival = () => {
   console.log(data.product);
   return (
     <Product_page>
+      <Topbar />
       {data.product.map((aaa, index) => (
         <ProductBox key={index}>
           <ProductImg src={aaa.img_url} />

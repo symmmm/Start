@@ -2,19 +2,9 @@ import React from "react";
 import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import Topbar from "../../components/Sidebar/Topbar";
-const Outer = () => {
+const Top = () => {
   const data = {
     product: [
-      {
-        product_num: "1",
-        product_name: "wwfggasdasdasds벨트a BLACK",
-        product_price: "100,000",
-        product_sale: "20",
-        img_url:
-          "http://m.insilence.co.kr/web/product/medium/202109/8d309f506b411c0ea1c144f28a98f0fb.jpg",
-        change_url:
-          "http://www.insilence.co.kr/web/product/extra/big/202108/30e799ef14bfe7705e6470cac375a348.jpg",
-      },
       {
         product_num: "2",
         product_name: "gdd BLACK",
@@ -33,14 +23,7 @@ const Outer = () => {
         change_url:
           "http://www.insilence.co.kr/web/product/extra/big/202108/30e799ef14bfe7705e6470cac375a348.jpg",
       },
-      {
-        product_name: "벨afgg",
-        product_price: "100,000",
-        img_url:
-          "http://insilence.co.kr/web/product/extra/big/202108/ee32080d6abe8324645fb6008f4a46a8.jpg",
-        change_url:
-          "http://www.insilence.co.kr/web/product/extra/big/202108/30e799ef14bfe7705e6470cac375a348.jpg",
-      },
+
       {
         product_name: "g1111ACK",
         product_price: "4,000",
@@ -91,4 +74,4 @@ const Outer = () => {
   );
 };
 
-export default Outer;
+export default Top;

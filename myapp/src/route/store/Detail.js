@@ -1,7 +1,10 @@
 import { Row, Col } from "antd";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+//import { useCookies } from "react-cookie";
 
 const Detail = () => {
+  //const [cookies, setCookie, removeCookie] = useCookies(["CART_cookie"]);
+
   const data = {
     product_id: "1",
     product_name: "wwfggasdasdasds벨트a BLACK",
@@ -50,6 +53,57 @@ const Detail = () => {
       set_price(parseInt(get_price) - parseInt(data.product_price));
     }
   };
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+  const [cart, setCart] = useState([]);
+
+  let localCart = localStorage.getItem("cart");
+
+  const addItem = (item) => {
+    //create a copy of our cart state, avoid overwritting existing state
+    const cartCopy = [...cart];
+
+    //assuming we have an ID field in our item
+    const { ID } = item;
+    console.log("asdasd", cartCopy);
+    //look for item in cart array
+    const existingItem = cartCopy.find((cartItem) => cartItem.ID == ID);
+
+    //if item already exists
+    if (existingItem) {
+      existingItem.quantity += item.quantity; //update item
+    } else {
+      //if item doesn't exist, simply add it
+      cartCopy.push(item);
+      alert("추가되었습니다.");
+    }
+
+    //update app state
+    setCart(cartCopy);
+
+    //make cart a string and store in local space
+    const stringCart = JSON.stringify(cartCopy);
+    localStorage.setItem("cart", stringCart);
+  };
+
+  const updateItem = (itemID, amount) => {};
+  const removeItem = (itemID) => {
+    console.log(itemID);
+    let cartCopy = [...cart];
+
+    cartCopy = cartCopy.filter((item) => item.ID != itemID);
+
+    //update state and local
+    setCart(cartCopy);
+
+    let cartString = JSON.stringify(cartCopy);
+    localStorage.setItem("cart", cartString);
+  };
+
+  useEffect(() => {
+    localCart = JSON.parse(localCart);
+    if (localCart) setCart(localCart);
+  }, []);
+
   return (
     <div>
       <Row>
@@ -102,6 +156,27 @@ const Detail = () => {
                 {get_amount}개)
               </span>
             </div>
+            <div className="cart_oreder">
+              {" "}
+              <button
+                className="cart_button"
+                onClick={() =>
+                  addItem({
+                    ID: data.product_name,
+                    Img: data.img_url,
+                    product_name: data.product_name,
+                    price: data.product_price,
+                    quantity: get_amount,
+                  })
+                }
+              >
+                장바구니담기
+              </button>
+              <button className="cart_button">구매하기</button>
+            </div>
+            <button className="cart_button" onClick={() => removeItem("ad")}>
+              삭제하기
+            </button>
           </div>
         </Col>
         {data.img.map((aaa, index) => (

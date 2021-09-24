@@ -11,6 +11,8 @@ import NewArrival from "./route/store/NewArrival";
 import Footer from "./components/Footer";
 import Outer from "./route/store/Outer";
 import Detail from "./route/store/Detail";
+import Top from "./route/store/Top";
+import Cart from "./route/Cart";
 function App() {
   return (
     <Router>
@@ -20,10 +22,12 @@ function App() {
         <Route path="/detail/:number" exact component={Detail} />
         <Route path="/store/newarrival" exact component={NewArrival} />
         <Route path="/store/outer" exact component={Outer} />
+        <Route path="/store/top" exact component={Top} />
         <Route path="/test/contents" exact component={Contents} />
         <Route path="/test/postlist" exact component={PostList} />
         <Route path="/lookbook" exact component={Lookbook} />
         <Route path="/Community/Notice" exact component={Notice} />
+        <Route path="/cart" exact component={Cart} />
         <Route
           path="/Community/Notice/:number"
           exact

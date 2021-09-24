@@ -107,7 +107,7 @@ const Sidebar = () => {
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
           <NavText>아이콘</NavText>
-          <NavText>장바구니</NavText>
+          <NavText to="/cart">장바구니</NavText>
           <NavTopMenu to="/">아이콘</NavTopMenu>
           <NavTopMenu to="/store/Newarrival">STORE</NavTopMenu>
           <NavTopMenu>LOOKBOOK</NavTopMenu>
