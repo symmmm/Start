@@ -9,6 +9,12 @@ import { IconContext } from "react-icons/lib";
 import { Tabs } from "antd";
 
 const Nav = styled.div`
+  width: 100%;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
   background: grey;
   height: 70px;
   display: flex;

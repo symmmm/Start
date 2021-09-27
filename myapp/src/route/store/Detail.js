@@ -65,24 +65,28 @@ const Detail = () => {
     //assuming we have an ID field in our item
     const { ID } = item;
     console.log("asdasd", cartCopy);
-    //look for item in cart array
-    const existingItem = cartCopy.find((cartItem) => cartItem.ID == ID);
-
-    //if item already exists
-    if (existingItem) {
-      existingItem.quantity += item.quantity; //update item
+    if (cartCopy.length >= 10) {
+      alert("장바구니는 10개까지");
     } else {
-      //if item doesn't exist, simply add it
-      cartCopy.push(item);
-      alert("추가되었습니다.");
+      //look for item in cart array
+      const existingItem = cartCopy.find((cartItem) => cartItem.ID == ID);
+
+      //if item already exists
+      if (existingItem) {
+        existingItem.quantity += item.quantity; //update item
+      } else {
+        //if item doesn't exist, simply add it
+        cartCopy.push(item);
+        alert("추가되었습니다.");
+      }
+
+      //update app state
+      setCart(cartCopy);
+
+      //make cart a string and store in local space
+      const stringCart = JSON.stringify(cartCopy);
+      localStorage.setItem("cart", stringCart);
     }
-
-    //update app state
-    setCart(cartCopy);
-
-    //make cart a string and store in local space
-    const stringCart = JSON.stringify(cartCopy);
-    localStorage.setItem("cart", stringCart);
   };
 
   const updateItem = (itemID, amount) => {};
@@ -105,7 +109,7 @@ const Detail = () => {
   }, []);
 
   return (
-    <div>
+    <div className="detail_page">
       <Row>
         <Col xs={24} md={18}>
           <div className="detail_card">
@@ -162,7 +166,8 @@ const Detail = () => {
                 className="cart_button"
                 onClick={() =>
                   addItem({
-                    ID: data.product_name,
+                    num: data.product_id,
+                    ID: "hhhhh",
                     Img: data.img_url,
                     product_name: data.product_name,
                     price: data.product_price,
@@ -174,9 +179,6 @@ const Detail = () => {
               </button>
               <button className="cart_button">구매하기</button>
             </div>
-            <button className="cart_button" onClick={() => removeItem("ad")}>
-              삭제하기
-            </button>
           </div>
         </Col>
         {data.img.map((aaa, index) => (
