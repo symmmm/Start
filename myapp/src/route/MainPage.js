@@ -1,9 +1,10 @@
 import React from "react";
+import HomeSlide from "../components/HomeSlide";
 
 const Mainpage = () => {
   return (
-    <div className="home">
-      <h1>MAINPAGE</h1>
+    <div className="test">
+      <HomeSlide></HomeSlide>
     </div>
   );
 };

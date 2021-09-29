@@ -59,33 +59,37 @@ const Detail = () => {
   let localCart = localStorage.getItem("cart");
 
   const addItem = (item) => {
-    //create a copy of our cart state, avoid overwritting existing state
-    const cartCopy = [...cart];
-
-    //assuming we have an ID field in our item
-    const { ID } = item;
-    console.log("asdasd", cartCopy);
-    if (cartCopy.length >= 10) {
-      alert("장바구니는 10개까지");
+    if (item.size === "") {
+      alert("사이즈 선택은 필수 입니다");
     } else {
-      //look for item in cart array
-      const existingItem = cartCopy.find((cartItem) => cartItem.ID == ID);
+      //create a copy of our cart state, avoid overwritting existing state
+      const cartCopy = [...cart];
 
-      //if item already exists
-      if (existingItem) {
-        existingItem.quantity += item.quantity; //update item
+      //assuming we have an ID field in our item
+      const { ID } = item;
+      console.log("asdasd", cartCopy);
+      if (cartCopy.length >= 10) {
+        alert("장바구니는 10개까지");
       } else {
-        //if item doesn't exist, simply add it
-        cartCopy.push(item);
-        alert("추가되었습니다.");
+        //look for item in cart array
+        const existingItem = cartCopy.find((cartItem) => cartItem.ID == ID);
+
+        //if item already exists
+        if (existingItem) {
+          existingItem.quantity += item.quantity; //update item
+        } else {
+          //if item doesn't exist, simply add it
+          cartCopy.push(item);
+          alert("추가되었습니다.");
+        }
+
+        //update app state
+        setCart(cartCopy);
+
+        //make cart a string and store in local space
+        const stringCart = JSON.stringify(cartCopy);
+        localStorage.setItem("cart", stringCart);
       }
-
-      //update app state
-      setCart(cartCopy);
-
-      //make cart a string and store in local space
-      const stringCart = JSON.stringify(cartCopy);
-      localStorage.setItem("cart", stringCart);
     }
   };
 
@@ -142,7 +146,9 @@ const Detail = () => {
                 <span onClick={down_amount}> ▼</span>
               </div>
             </div>
-            <div>선택된 사이즈:{get_Size}</div>
+            <div>
+              선택된 사이즈: <strong>{get_Size}</strong>
+            </div>
             <div onClick={detail_info} className="detail_info_button">
               Detail
               {detail_isopen ? <span>-</span> : <span>+</span>}
@@ -172,6 +178,7 @@ const Detail = () => {
                     product_name: data.product_name,
                     price: data.product_price,
                     quantity: get_amount,
+                    size: get_Size,
                   })
                 }
               >
