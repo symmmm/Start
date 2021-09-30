@@ -17,12 +17,24 @@
   font-size: 16px;
 }
 
+table {
+  max-width: 900px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 th,
 td {
-  border: 1px solid #444444;
-  padding: 10px;
-  font-size: 50;
+  border-top: 1px solid #444444;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  height: 20px;
   white-space: break-spaces;
+}
+.td2 {
+  text-align: left;
 }
 .App {
   text-align: center;
@@ -192,4 +204,35 @@ body {
 }
 .detail_page {
   padding-top: 75px;
+}
+.review {
+}
+.review_list {
+  border-top: 1px solid #444444;
+  height: 35px;
+  display: flex;
+  padding-top: 7px;
+}
+.review_Wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.review_detail {
+  border-top: 1px solid #444444;
+}
+.review_board {
+  max-width: 900px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.review_image_box {
+  max-width: 900px;
+  margin: 10px;
+}
+.review_image {
+  max-width: 100%;
+  height: auto;
 }

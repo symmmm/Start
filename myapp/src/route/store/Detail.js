@@ -1,10 +1,8 @@
 import { Row, Col } from "antd";
 import { useState, useEffect } from "react";
-//import { useCookies } from "react-cookie";
+import Review from "../../components/review/Review";
 
 const Detail = () => {
-  //const [cookies, setCookie, removeCookie] = useCookies(["CART_cookie"]);
-
   const data = {
     product_id: "1",
     product_name: "wwfggasdasdasds벨트a BLACK",
@@ -173,7 +171,7 @@ const Detail = () => {
                 onClick={() =>
                   addItem({
                     num: data.product_id,
-                    ID: "hhhhh",
+                    ID: "123123",
                     Img: data.img_url,
                     product_name: data.product_name,
                     price: data.product_price,
@@ -195,6 +193,14 @@ const Detail = () => {
             </div>
           </Col>
         ))}
+        <Col xs={24} md={18}>
+          <div className="review">
+            <div className="review_Wrap">
+              <strong>상품리뷰</strong>
+            </div>
+            <Review />
+          </div>
+        </Col>
       </Row>
     </div>
   );
