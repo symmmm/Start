@@ -71,7 +71,7 @@ const Cart = () => {
                   checked={CheckList.includes(aaa.ID)}
                 ></input>
               </div>
-              <img src={aaa.Img} className="cart_card_image" />
+              <img src={aaa.Img} className="cart_card_image" alt="profile" />
               <div>
                 <Link to={`/detail/${aaa.product_num}`}>
                   <strong>{aaa.ID}</strong>

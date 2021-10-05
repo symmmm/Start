@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import List from "./List";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { nowCount } from "../redux/reducer/increase";
 /////////////////디테일 페이지에서 댓글수와 추천수를 받아와서 올라가면 업데이트
 

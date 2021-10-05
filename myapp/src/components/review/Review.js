@@ -1,6 +1,7 @@
 import { useState } from "react";
+import React from "react";
 
-const Review = () => {
+const Review = React.memo(() => {
   const data = {
     product: [
       {
@@ -45,21 +46,24 @@ const Review = () => {
       },
     ],
   };
-  const [ClickID, set_ClickID] = useState();
+  const [ClickID, set_ClickID] = useState(-1);
+  //const [detail_isopen, setdetail] = useState(false);
 
-  const [detail_isopen, setdetail] = useState(false);
   const Review_DetailClick = (value) => {
-    set_ClickID(value);
-    setdetail((detail_isopen) => !detail_isopen);
-    console.log(value, detail_isopen);
+    console.log("벨류", value);
+    if (ClickID === value) {
+      set_ClickID(-1);
+    } else {
+      set_ClickID(value);
+    }
   };
-
+  console.log("클릭아이디", ClickID);
+  //console.log(detail_isopen);
   return (
     <div className="review_board">
       {data.product.map((aaa, index) => (
-        <div>
+        <div key={index}>
           <div
-            key={index}
             className="review_list"
             onClick={() => Review_DetailClick(aaa.Review_num)}
           >
@@ -82,17 +86,17 @@ const Review = () => {
               {aaa.write_date}
             </span>
           </div>
-          {detail_isopen ? (
-            ClickID === aaa.Review_num ? (
-              <div>
-                <div className="review_image_box">
-                  <img className="review_image" src={aaa.img_url}></img>
-                </div>
-                <p>{aaa.Review_detail}</p>
+          {ClickID === aaa.Review_num ? (
+            <div>
+              <div className="review_image_box">
+                <img
+                  className="review_image"
+                  src={aaa.img_url}
+                  alt="profile"
+                ></img>
               </div>
-            ) : (
-              ""
-            )
+              <p>{aaa.Review_detail}</p>
+            </div>
           ) : (
             ""
           )}
@@ -100,6 +104,6 @@ const Review = () => {
       ))}
     </div>
   );
-};
+});
 
-export default Review;
+export default React.memo(Review);

@@ -13,11 +13,15 @@ import Outer from "./route/store/Outer";
 import Detail from "./route/store/Detail";
 import Top from "./route/store/Top";
 import Cart from "./route/Cart";
+import LoginPage from "./Login/LoginPage";
+import JoinPage from "./Login/Join";
 function App() {
   return (
     <Router>
       <Sidebar />
       <Switch>
+        <Route path="/login" exact component={LoginPage} />
+        <Route path="/join" exact component={JoinPage} />
         <Route path="/" exact component={Mainpage} />
         <Route path="/detail/:number" exact component={Detail} />
         <Route path="/store/newarrival" exact component={NewArrival} />

@@ -1,5 +1,5 @@
 import { Row, Col } from "antd";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Review from "../../components/review/Review";
 
 const Detail = () => {
@@ -54,7 +54,7 @@ const Detail = () => {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
   const [cart, setCart] = useState([]);
 
-  let localCart = localStorage.getItem("cart");
+  //let localCart = localStorage.getItem("cart");
 
   const addItem = (item) => {
     if (item.size === "") {
@@ -70,7 +70,7 @@ const Detail = () => {
         alert("장바구니는 10개까지");
       } else {
         //look for item in cart array
-        const existingItem = cartCopy.find((cartItem) => cartItem.ID == ID);
+        const existingItem = cartCopy.find((cartItem) => cartItem.ID === ID);
 
         //if item already exists
         if (existingItem) {
@@ -91,24 +91,24 @@ const Detail = () => {
     }
   };
 
-  const updateItem = (itemID, amount) => {};
-  const removeItem = (itemID) => {
-    console.log(itemID);
-    let cartCopy = [...cart];
+  // const updateItem = (itemID, amount) => {};
+  // const removeItem = (itemID) => {
+  //   console.log(itemID);
+  //   let cartCopy = [...cart];
 
-    cartCopy = cartCopy.filter((item) => item.ID != itemID);
+  //   cartCopy = cartCopy.filter((item) => item.ID != itemID);
 
-    //update state and local
-    setCart(cartCopy);
+  //   //update state and local
+  //   setCart(cartCopy);
 
-    let cartString = JSON.stringify(cartCopy);
-    localStorage.setItem("cart", cartString);
-  };
+  //   let cartString = JSON.stringify(cartCopy);
+  //   localStorage.setItem("cart", cartString);
+  // };
 
-  useEffect(() => {
-    localCart = JSON.parse(localCart);
-    if (localCart) setCart(localCart);
-  }, []);
+  // useEffect(() => {
+  //   localCart = JSON.parse(localCart);
+  //   if (localCart) setCart(localCart);
+  // }, []);
 
   return (
     <div className="detail_page">
@@ -118,6 +118,7 @@ const Detail = () => {
             <img
               className="Detail_Image"
               src="https://ambient.diskn.com/detailimg/21FW/MEN/BRANDED/intro_2.jpg"
+              alt="profile"
             ></img>
           </div>
         </Col>
@@ -189,7 +190,7 @@ const Detail = () => {
         {data.img.map((aaa, index) => (
           <Col xs={24} md={18} key={index}>
             <div className="detail_product_image">
-              <img className="Detail_Image" src={aaa}></img>
+              <img className="Detail_Image" src={aaa} alt="profile"></img>
             </div>
           </Col>
         ))}

@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData.js";
 import SubMenu from "./SubMenu";
-import {
-  AppstoreFilled,
-  ShoppingOutlined,
-  MenuOutlined,
-} from "@ant-design/icons";
+import { ShoppingOutlined, MenuOutlined } from "@ant-design/icons";
 const Nav = styled.div`
   background: white;
   width: 100%;
@@ -29,15 +25,15 @@ const Nav = styled.div`
   }
 `;
 
-const Testbar = styled.div`
-  background: orange;
-  display: flex;
-  height: 70px;
-  @media screen and (max-width: 768px) {
-    display: flex;
-    justify-content: space-between;
-  }
-`;
+// const Testbar = styled.div`
+//   background: orange;
+//   display: flex;
+//   height: 70px;
+//   @media screen and (max-width: 768px) {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// `;
 
 const NavIcon = styled(Link)`
   margin-left: 1rem;
@@ -110,7 +106,7 @@ const Sidebar = () => {
   return (
     <>
       <Nav>
-        <NavIcon>
+        <NavIcon to="#">
           <MenuOutlined onClick={showSidebar} />
         </NavIcon>
         <NavText to="/">MAIN</NavText>
@@ -119,10 +115,10 @@ const Sidebar = () => {
         </NavIcon>
         <NavTopMenu to="/">MAIN</NavTopMenu>
         <NavTopMenu to="/store/Newarrival">STORE</NavTopMenu>
-        <NavTopMenu>LOOKBOOK</NavTopMenu>
-        <NavTopMenu>COMMUNITY</NavTopMenu>
-        <NavTopMenu>MYPAGE</NavTopMenu>
-        <NavTopMenu>CART</NavTopMenu>
+        <NavTopMenu to="#">LOOKBOOK</NavTopMenu>
+        <NavTopMenu to="#">COMMUNITY</NavTopMenu>
+        <NavTopMenu to="#">MYPAGE</NavTopMenu>
+        <NavTopMenu to="#">CART</NavTopMenu>
       </Nav>
       <SidebarNav sidebar={sidebar}>
         <SidebarWrap>

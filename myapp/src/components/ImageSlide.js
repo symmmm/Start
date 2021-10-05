@@ -59,12 +59,12 @@ const CardImg = styled.img`
   //border: 1px solid #444444;
 `;
 
-const CardText = styled.p`
-  padding: 20px;
-  font-size: 20px;
-  font-weight: bolder;
-  text-align: center;
-`;
+// const CardText = styled.p`
+//   padding: 20px;
+//   font-size: 20px;
+//   font-weight: bolder;
+//   text-align: center;
+// `;
 // const Wrap = styled.div`
 //   opacity: 1;
 //   width: 100%;
